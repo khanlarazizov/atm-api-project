@@ -675,7 +675,6 @@
       "TransactionTypeEnum": {
         "type": "string",
         "enum": [
-          "deposit",
           "withdraw"
         ],
         "title": "TransactionTypeEnum"
