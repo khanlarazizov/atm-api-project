@@ -44,33 +44,55 @@ npm run dev
 
 ```
 
-Run the migration and seed
+Run the migration and seed(for seeding users and banknotes)
 
 ```
 php artisan migrate --seed
 ```
 
-## POSTMAN
+## API Docs
 
-<img src="public/images/LaraCommerce-API.png" alt="Preview" width="75%"/>
-</br>
-<p style="font-weight: bold;">
-Complete REST API Documentation can be found <a href="https://documenter.getpostman.com/view/25234064/2s93JnUSRS">here</a>
-</p>
+```
+/docs/atm-project.json
+```
 
-## License
+## Roles
 
-> Copyright (C) 2023 Muhammad Habib Fery.  
-**[⬆ back to top](#laracommerce-rest-api)**
+## User:
 
-[Admin Panel Features]:#admin-panel-features
+    -see own account, transactions
+    -withdraw money
 
-[Requirements]:#requirements
+## Special user can:
 
-[Install]:#install
+    -see own account, transactions
+    -withdraw money
+    -delete own transactions
 
-[How to setting]:#how-to-setting
+## Admin:
 
-[API Docs]:#api-docs
+    -add banknotes
 
-[License]:#license
+## For testing:
+
+User profile:
+
+```
+    'account_number' => '1234567890123452',
+    'pin' => '1234'
+```
+
+Special user profile:
+
+```
+    'account_number' => '1234567890123453',
+    'pin' => '1234'
+```
+
+Admin profile:
+
+```
+    'account_number' => '1234567890123451',
+    'pin' => '1234'
+```
+
