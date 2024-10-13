@@ -24,8 +24,6 @@ class WithdrawController extends Controller
         try {
             $data = $this->withdrawService->withdraw(\auth()->user(), $request->input('amount'));
 
-//            auth()->user()->tokens()->delete();
-
             if ($data['success'] == true) {
                 return response()->json([
                     'success' => true,
