@@ -58,21 +58,21 @@ php artisan migrate --seed
 
 ## Roles
 
-## User:
-
+User:
+````
     -see own account, transactions
     -withdraw money
-
-## Special user can:
-
+````
+Special user can:
+````
     -see own account, transactions
     -withdraw money
     -delete own transactions
-
-## Admin:
-
+````
+Admin:
+````
     -add banknotes
-
+````
 ## For testing:
 
 User profile:
