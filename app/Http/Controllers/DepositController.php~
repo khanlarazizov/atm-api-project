@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\DepositRequest;
+use App\Models\User;
+use App\Services\DepositService;
+
+class DepositController extends Controller
+{
+    public function __construct(protected DepositService $depositService)
+    {
+    }
+
+    public function __invoke(DepositRequest $request, User $user)
+    {
+        $data = $this->depositService->deposit($user, $request->input('amount'));
+
+//        auth()->user()->tokens()->delete();
+
+        if ($data['status'] == 'success') {
+            return response()->json([
+                'message' => 'Deposit successful',
+                'banknotes' => $data['banknotes'],
+                'new_balance' => $data['new_balance'],
+                'deposit_amount' => $data['deposit_amount'],
+            ], 201);
+        }
+
+        return response()->json([
+            'message' => $data['message'],
+        ], 400);
+    }
+}

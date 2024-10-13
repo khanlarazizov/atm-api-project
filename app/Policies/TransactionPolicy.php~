@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Transaction;
+use App\Models\User;
+
+class TransactionPolicy
+{
+    public function delete(User $authUser, Transaction $transaction): bool
+    {
+        return $authUser->id === $transaction->user_id;
+    }
+}

@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Lib;
+
+use App\Lib\Interfaces\IBaseRepository;
+use App\Models\Banknote;
+use Illuminate\Database\Eloquent\Collection;
+
+class BaseRepository implements IBaseRepository
+{
+
+    public function getAllBanknotesOrderByValue(): Collection
+    {
+        $banknotes = Banknote::orderBy('value', 'desc')->get();
+
+        return $banknotes;
+    }
+
+    public function createTransaction($user, $amount, $type): void
+    {
+        $user->transactions()->create([
+            'amount' => $amount,
+            'type' => $type,
+            'date' => now()
+        ]);
+    }
+}
