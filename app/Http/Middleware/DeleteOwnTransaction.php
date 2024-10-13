@@ -20,7 +20,7 @@ class DeleteOwnTransaction
     {
         try {
             $user = auth()->user();
-            $transactionId = $request->route('transaction');
+            $transactionId = $request->route('transactionId');
             $transaction = Transaction::findOrFail($transactionId);
 
             if ($user->role !== RoleEnum::SPECIAL_USER) {

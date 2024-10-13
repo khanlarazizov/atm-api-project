@@ -43,12 +43,6 @@ class TransactionController extends Controller
     public function destroy(int $transactionId): JsonResponse
     {
         try {
-            $transaction = Transaction::findOrFail($transactionId);
-            if (auth()->user()->id !== $transaction->user_id) {
-                return response()->json([
-                    'success' => false
-                ], 401);
-            }
             $this->transactionRepository->deleteTransaction($transactionId);
 
             return response()->json([
